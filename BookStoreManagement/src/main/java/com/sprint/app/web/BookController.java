@@ -13,7 +13,7 @@ import com.sprint.app.entity.Book;
 import com.sprint.app.service.IBookService;
 
 @RestController
-@RequestMapping("bookdetails")
+@RequestMapping("/store/bookdetails")
 public class BookController {
 	
 	@Autowired
@@ -37,5 +37,5 @@ public class BookController {
 		return bookService.listAllBooks();
 	}
 	
-	
+
 }

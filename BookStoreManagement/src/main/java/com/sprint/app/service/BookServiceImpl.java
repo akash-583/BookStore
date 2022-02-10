@@ -24,7 +24,10 @@ public class BookServiceImpl implements IBookService{
 	public List<Book> listAllBooks() {
 	
 		List<Book> bookList=(List<Book>) bookrepo.findAll();
-
+		
+		if(bookList.size()==0) {
+			return null;
+		}
 		return bookList;
 	}
 

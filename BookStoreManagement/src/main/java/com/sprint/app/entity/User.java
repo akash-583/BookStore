@@ -25,6 +25,7 @@ public class User
 	
 	@Embedded
 	private Address address;
+	
 	private long mobile;
 	private String email;
 	private String password;

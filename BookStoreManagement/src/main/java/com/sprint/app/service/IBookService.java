@@ -10,6 +10,7 @@ public interface IBookService {
 	public boolean addBook(Book b);
 	public List<Book> listAllBooks();
 	public boolean deleteBook(int isbn);
+	public Book getBook(int isbn);
 	public Book viewBook(String name);
 	public List<Book> listBooksByCategory(String cat);
 }

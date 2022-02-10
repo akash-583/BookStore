@@ -19,12 +19,6 @@ public class LoginServiceImpl implements ILoginService{
 		return true;
 	}
 
-	@Override
-	public boolean removeUser(int userId) 
-	{
-		loginrepo.deleteById(userId);
-		return true;
-	}
 
 	@Override
 	public boolean validateUser(User user) {

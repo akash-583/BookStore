@@ -49,6 +49,12 @@ public class BookServiceImpl implements IBookService{
 		//Custom Repository
 		return null;
 	}
+
+	@Override
+	public Book getBook(int isbn) {
+		
+		return bookrepo.findById(isbn).get();
+	}
 	
 	
 }

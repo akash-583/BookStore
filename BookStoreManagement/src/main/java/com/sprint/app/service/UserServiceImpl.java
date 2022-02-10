@@ -27,4 +27,11 @@ public class UserServiceImpl implements IUserService{
 		return userList;
 	}
 
+	@Override
+	public boolean removeUser(int userId) {
+	
+		userrepo.deleteById(userId);
+		return true;
+	}
+
 }

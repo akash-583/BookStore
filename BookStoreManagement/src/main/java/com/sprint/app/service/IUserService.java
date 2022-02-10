@@ -10,5 +10,7 @@ import com.sprint.app.entity.User;
 public interface IUserService {
 	
 	public User getUser(int userId);
+	public boolean removeUser(int userId);
 	public List<User> getAllUsers();
+	
 }

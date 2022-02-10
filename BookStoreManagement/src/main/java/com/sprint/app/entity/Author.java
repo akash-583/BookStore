@@ -1,5 +1,19 @@
 package com.sprint.app.entity;
 
-public class Author {
 
+import javax.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Author {
+	
+	private String authorName;
+	private String about;
 }

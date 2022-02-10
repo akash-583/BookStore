@@ -5,10 +5,9 @@ import com.sprint.app.entity.Book;
 
 public interface IBookService {
 	
-	public Book createBook(Book b);
+	public boolean addBook(Book b);
 	public List<Book> listAllBooks();
-	public Book deleteBook(Book b);
-	public Book editBook(Book b);
-	public Book viewBook(Book b);
+	public boolean deleteBook(String isbn);
+	public Book viewBook(String name);
 	public List<Book> listBooksByCategory(String cat);
 }

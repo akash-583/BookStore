@@ -1,8 +1,9 @@
 package com.sprint.app.entity;
 
-public class User {
+public class User 
+{
 	private int userId;
 	private String email;
 	private String password;
-	private String role;
+	
 }

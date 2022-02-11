@@ -32,7 +32,4 @@ public class Book {
 	@Embedded
 	private Author author;
 	
-
-	
-	
 }

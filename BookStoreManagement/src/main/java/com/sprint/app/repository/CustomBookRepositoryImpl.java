@@ -58,5 +58,17 @@ public class CustomBookRepositoryImpl implements CustomBookRepository{
 		return priceList;
 	}
 
-	
+	@Override
+	public List<Book> listBooksByRating(float rating) {
+		
+		Session session=entityManager.unwrap(Session.class); 
+		
+		String queryString ="from Book b where b.rating=:rating";
+		
+		Query<Book> query=session.createQuery(queryString);
+		query.setFloat("rating",rating);
+		
+		List<Book> ratingsList= query.getResultList();
+		return ratingsList;
+	}
 }

@@ -65,6 +65,12 @@ public class BookServiceImpl implements IBookService{
 		return bookrepo.listBooksByPrice(price);
 	}
 
+	@Override
+	public List<Book> listBooksByRating(float rating) {
+		
+		return bookrepo.listBooksByRating(rating);
+	}
+
 	
 	
 }

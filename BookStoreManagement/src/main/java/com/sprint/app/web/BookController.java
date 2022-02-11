@@ -50,5 +50,11 @@ public class BookController {
 		
 		return bookService.listBooksByCategory(category);
 	}
+	
+	@GetMapping("/rating")
+	public List<Book> bookByRating(@RequestParam float rating){
+		
+		return bookService.listBooksByRating(rating);
+	}
 
 }

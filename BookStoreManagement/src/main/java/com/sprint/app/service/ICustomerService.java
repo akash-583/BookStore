@@ -16,6 +16,5 @@ public interface ICustomerService {
 	public boolean deleteCustomer(int customerId);
 	public String updateCustomer(Customer c);
 	public Customer viewCustomer(int customerId);
-	public List<Customer> listAllCustomersByBook(Book book);
 
 }

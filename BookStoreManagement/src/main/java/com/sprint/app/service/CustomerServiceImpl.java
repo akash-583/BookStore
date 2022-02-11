@@ -54,11 +54,7 @@ List<Customer> custlist=(List<Customer>) customer.findAll();
 		return customer.findById(customerid).get(); 
 	}
 
-	@Override
-	public List<Customer> listAllCustomersByBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
 
 }

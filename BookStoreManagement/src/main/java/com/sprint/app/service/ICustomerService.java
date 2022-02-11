@@ -10,6 +10,7 @@ import com.sprint.app.entity.Customer;
 
 @Service
 public interface ICustomerService {
+	
 	public boolean createCustomer(Customer c);
 	public List<Customer> listCustomers();
 	public boolean deleteCustomer(int customerId);

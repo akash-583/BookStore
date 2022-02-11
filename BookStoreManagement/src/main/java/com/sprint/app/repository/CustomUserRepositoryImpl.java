@@ -1,15 +1,14 @@
 package com.sprint.app.repository;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.sprint.app.entity.User;
 
-public class CustomerUserRepositoryImpl implements CustomUserRepository{
+public class CustomUserRepositoryImpl implements CustomUserRepository{
 
 	@Autowired
 	EntityManager enityManager;

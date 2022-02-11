@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.sprint.app.entity.User;
 
-public interface IUserRepository extends CrudRepository<User, Integer>{
+public interface IUserRepository extends CrudRepository<User, Integer>,CustomUserRepository{
 
 }

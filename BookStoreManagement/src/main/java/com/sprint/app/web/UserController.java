@@ -59,11 +59,15 @@ public class UserController {
 		return userService.getAllUsers();
 	}
 	
-	@GetMapping("/user")
-	public List<User> getByName(@RequestParam String userName)
+	@GetMapping("/details")
+	public User getByName(@RequestParam String userName)
 	{
-		//avrwrbavdqarwqvrwq;
-		return null;
+		return userService.getByName(userName);	
+	}
+	
+	@GetMapping("/user/area")
+	public List<User> getByArea(@RequestParam String area){
 		
+		return userService.getByArea(area);
 	}
 }

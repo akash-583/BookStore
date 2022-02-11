@@ -2,7 +2,6 @@ package com.sprint.app.entity;
 
 import java.time.LocalDate;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,7 +16,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Embeddable
 public class Customer {
 	@Id
 	private int customerId;
@@ -42,9 +40,7 @@ public class Customer {
 		this.registerOn = registerOn;
 	}
 	
-	public Customer() {
-		super();
-	}
+	
 
 	public int getCustomerId() {
 		return customerId;

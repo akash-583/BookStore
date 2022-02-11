@@ -21,7 +21,7 @@ public class CustomBookRepositoryImpl implements CustomBookRepository{
 	
 		Session session=entityManager.unwrap(Session.class); 
 		
-		String queryString ="from Book b where a.name=:name";
+		String queryString ="from Book b where b.name=:name";
 		
 		Query<Book> query=session.createQuery(queryString);
 		query.setString("name",name);

@@ -14,7 +14,7 @@ public interface ICustomerService {
 	public boolean createCustomer(Customer c);
 	public List<Customer> listCustomers();
 	public boolean deleteCustomer(int customerId);
-	public boolean updateCustomer(Customer c);
+	public String updateCustomer(Customer c);
 	public Customer viewCustomer(int customerId);
 	public List<Customer> listAllCustomersByBook(Book book);
 

@@ -44,9 +44,9 @@ List<Customer> custlist=(List<Customer>) customer.findAll();
 	}
 
 	@Override
-	public boolean updateCustomer(Customer c) {
+	public String updateCustomer(Customer c) {
 		// TODO Auto-generated method stub
-		return true;
+		return "Done";
 	}
 
 	@Override

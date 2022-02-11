@@ -58,4 +58,12 @@ public class UserController {
 	{
 		return userService.getAllUsers();
 	}
+	
+	@GetMapping("/user")
+	public List<User> getByName(@RequestParam String userName)
+	{
+		//avrwrbavdqarwqvrwq;
+		return null;
+		
+	}
 }

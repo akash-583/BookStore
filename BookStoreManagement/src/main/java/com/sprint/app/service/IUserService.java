@@ -12,5 +12,6 @@ public interface IUserService {
 	public User getUser(int userId);
 	public boolean removeUser(int userId);
 	public List<User> getAllUsers();
-	
+	public User getByName(String userName);
+	public List<User> getByArea(String area);
 }

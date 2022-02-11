@@ -47,4 +47,10 @@ public class UserServiceImpl implements IUserService{
 		return userrepo.getByArea(area);
 	}
 
+	@Override
+	public List<User> getByCity(String city) {
+		
+		return userrepo.getByCity(city);
+	}
+
 }

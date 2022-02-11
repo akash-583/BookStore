@@ -49,8 +49,7 @@ public class BookServiceImpl implements IBookService{
 	@Override
 	public List<Book> listBooksByCategory(String cat) {
 		
-		//Custom Repository
-		return null;
+		return bookrepo.listBooksByCategory(cat);
 	}
 
 	@Override
@@ -58,6 +57,14 @@ public class BookServiceImpl implements IBookService{
 		
 		return bookrepo.findById(isbn).get();
 	}
+
+
+	@Override
+	public List<Book> listBooksByPrice(double price) {
+
+		return bookrepo.listBooksByPrice(price);
+	}
+
 	
 	
 }

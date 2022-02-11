@@ -13,7 +13,7 @@ import com.sprint.app.entity.Book;
 import com.sprint.app.service.IBookService;
 
 @RestController
-@RequestMapping("/store/bookdetails")
+@RequestMapping("/bookstore")
 public class BookController {
 	
 	@Autowired
@@ -37,5 +37,18 @@ public class BookController {
 		return bookService.listAllBooks();
 	}
 	
+	
+	@GetMapping("/price")
+	public List<Book> bookByPrice(@RequestParam double price)
+	{
+		return bookService.listBooksByPrice(price);
+	}
+	
+	
+	@GetMapping("/category")
+	public List<Book> bookByCategory(@RequestParam String category){
+		
+		return bookService.listBooksByCategory(category);
+	}
 
 }

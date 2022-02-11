@@ -41,6 +41,21 @@ public class CustomUserRepositoryImpl implements CustomUserRepository{
 		List<User> userList=query.getResultList();
 		return userList;
 	}
+
+	@Override
+	public List<User> getByCity(String city) {
+		
+		Session session=enityManager.unwrap(Session.class);
+		
+		String queryString ="from User u where u.address.city=:city";
+		
+		Query<User> query=session.createQuery(queryString);
+		query.setString("city",city);
+		
+		List<User> userList=query.getResultList();
+		return userList;
+		
+	}
 	
 	
 

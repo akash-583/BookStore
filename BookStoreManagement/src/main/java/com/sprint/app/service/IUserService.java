@@ -14,4 +14,6 @@ public interface IUserService {
 	public List<User> getAllUsers();
 	public User getByName(String userName);
 	public List<User> getByArea(String area);
+	public List<User> getByCity(String city);
+	
 }

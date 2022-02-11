@@ -47,27 +47,39 @@ public class UserController {
 	
 	
 	@DeleteMapping("/user")
-	public boolean removeUser(@RequestParam int id)
-	{
+	public boolean removeUser(@RequestParam int id){
+		
 		return userService.removeUser(id);
 	}
 	
 	
 	@GetMapping("/users")
-	public List<User> allUsers()
-	{
+	public List<User> allUsers(){
+		
 		return userService.getAllUsers();
 	}
 	
 	@GetMapping("/details")
-	public User getByName(@RequestParam String userName)
-	{
+	public User getByName(@RequestParam String userName){
+		
 		return userService.getByName(userName);	
+		
 	}
 	
 	@GetMapping("/user/area")
 	public List<User> getByArea(@RequestParam String area){
 		
 		return userService.getByArea(area);
+		
 	}
+	
+	
+	@GetMapping("/user/city")//
+	public List<User> getByCity(@RequestParam String city){
+		
+		return userService.getByCity(city);
+		
+	}
+	
+	
 }

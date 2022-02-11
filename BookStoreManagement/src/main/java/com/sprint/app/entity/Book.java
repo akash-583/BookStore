@@ -22,17 +22,17 @@ public class Book {
 	private int isbn;
 	private String title;
 
-
+	private String category;
 	private String description;
 	private double price;
 	private LocalDate publishDate;
 	private LocalDate lastUpdatedOn;
+	private float rating;
 	
 	@Embedded
 	private Author author;
 	
 
-	@Embedded
-	private Category category;
+	
 	
 }

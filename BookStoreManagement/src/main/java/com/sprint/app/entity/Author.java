@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Author {
 	
 	private String authorName;
-	private String about;
+	private String aboutAuthor;
 	/**
 	 * 
 	 */
@@ -26,7 +26,7 @@ public class Author {
 	 */
 	public Author(String authorName, String about) {
 		this.authorName = authorName;
-		this.about = about;
+		this.aboutAuthor = about;
 	}
 	
 	

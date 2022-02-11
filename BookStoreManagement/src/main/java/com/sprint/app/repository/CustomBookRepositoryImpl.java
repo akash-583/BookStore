@@ -35,13 +35,27 @@ public class CustomBookRepositoryImpl implements CustomBookRepository{
 		
 		Session session=entityManager.unwrap(Session.class); 
 		
-		String queryString ="from Book b where a.category=:category";
+		String queryString ="from Book b where b.category=:category";
 		
 		Query<Book> query=session.createQuery(queryString);
 		query.setString("category",category);
 		
-		List<Book> categoryList = (List<Book>) query.getResultStream();
+		List<Book> categoryList = query.getResultList();
 		return categoryList;
+	}
+
+	@Override
+	public List<Book> listBooksByPrice(double price) {
+		
+		Session session=entityManager.unwrap(Session.class); 
+		
+		String queryString ="from Book b where b.price=:price";
+		
+		Query<Book> query=session.createQuery(queryString);
+		query.setDouble("price",price);
+		
+		List<Book> priceList = query.getResultList();
+		return priceList;
 	}
 
 	

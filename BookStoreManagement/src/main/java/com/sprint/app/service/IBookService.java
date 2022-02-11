@@ -13,4 +13,6 @@ public interface IBookService {
 	public Book getBook(int isbn);
 	public Book viewBook(String name);
 	public List<Book> listBooksByCategory(String cat);
+	public List<Book> listBooksByPrice(double price);
+
 }

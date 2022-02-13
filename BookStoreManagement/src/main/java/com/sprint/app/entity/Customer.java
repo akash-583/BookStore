@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.ForeignKey;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,7 +39,5 @@ public class Customer{
 	@Embedded
 	private Address address;
 	
-	@OneToMany(targetEntity = Order.class, cascade=CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name="customer_fk",referencedColumnName = "customerId")
-	private List<Order> customerOrders;
+	
 }

@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements ICustomerService{
 
 	@Override
 	public List<Customer> listCustomers() {
-List<Customer> custlist=(List<Customer>) customer.findAll();
+		List<Customer> custlist=(List<Customer>) customer.findAll();
 		
 		if(custlist.size()==0) {
 			return null;
@@ -38,8 +38,7 @@ List<Customer> custlist=(List<Customer>) customer.findAll();
 	@Override
 	public boolean deleteCustomer(int customerId) {
 		// TODO Auto-generated method stub
-		Customer cus=customer.findById(customerId).get();
-		customer.delete(cus);
+		customer.deleteById(customerId);
 		return true;
 	}
 

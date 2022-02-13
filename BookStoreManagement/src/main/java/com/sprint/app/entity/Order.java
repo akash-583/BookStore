@@ -1,9 +1,7 @@
 package com.sprint.app.entity;
 
 import java.time.LocalDate;
-import java.util.List;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -31,6 +29,4 @@ public class Order {
 	private String recipientPhone;
 	
 	
-	@Embedded
-	private List<OrderDetails> booksList;
 }

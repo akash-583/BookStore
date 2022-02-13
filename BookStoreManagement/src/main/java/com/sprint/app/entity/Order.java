@@ -1,13 +1,11 @@
 package com.sprint.app.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,19 +15,22 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
 @Getter
+@Setter
 public class Order {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO,generator ="Orders")
-	@SequenceGenerator(allocationSize = 1,initialValue = 10231,name ="Orders")
+	@Id	
 	private int orderId;
 	private LocalDate orderDate;
-	private String orderStatus;
+	
+	private double orderTotal;
+	private String status;
+	private Address ShippingAddress;
+	private String paymentMethod;
+	private String recipientName;
+	private String recipientPhone;
+	
 	
 	@Embedded
-	private Cart cart;
-	
-	
+	private List<OrderDetails> booksList;
 }

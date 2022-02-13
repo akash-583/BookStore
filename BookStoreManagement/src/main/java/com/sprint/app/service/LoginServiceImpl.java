@@ -15,8 +15,8 @@ public class LoginServiceImpl implements ILoginService{
 	@Override
 	public User addUser(User user) 
 	{
-		return loginrepo.save(user);
-		
+		User log=loginrepo.save(user);
+		return log;
 	}
 
 

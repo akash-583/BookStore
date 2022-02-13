@@ -1,6 +1,7 @@
 package com.sprint.app.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,10 +20,10 @@ public class CustomerServiceImpl implements ICustomerService{
 	ICustomerServiceRepo customer;
 
 	@Override
-	public boolean createCustomer(Customer c) {
+	public String  createCustomer(Customer c) {
 		// TODO Auto-generated method stub
 		customer.save(c);
-		return true;
+		return "Customer Profile Created";
 	}
 
 	@Override
@@ -36,21 +37,39 @@ public class CustomerServiceImpl implements ICustomerService{
 	}
 
 	@Override
-	public boolean deleteCustomer(int customerId) {
+	public String deleteCustomer(int customerId) {
 		// TODO Auto-generated method stub
 		customer.deleteById(customerId);
-		return true;
+		return "Customer Profile Delete";
 	}
 
 	@Override
 	public String updateCustomer(Customer c) {
-		// TODO Auto-generated method stub
+		customer.save(c);
 		return "Done";
 	}
 
 	@Override
 	public Customer viewCustomer(int customerid) {
 		return customer.findById(customerid).get(); 
+	}
+
+	@Override
+	public List<Customer> getCustomerByDate(Date date) {
+	return customer.getCustomerByDate(date);
+	}
+
+	@Override
+	public Customer getCustomerByName(String name) {
+		// TODO Auto-generated method stub
+		
+		return customer.getCustomerByName(name);
+	}
+
+	@Override
+	public Customer getCustomerByPhoneNumber(long number) {
+		// TODO Auto-generated method stub
+		return customer.getCustomerByPhoneNumber(number);
 	}
 
 

@@ -5,54 +5,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
+
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class User 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	
-	@NotNull(message = "Name cannot be empty")
+	@NotBlank(message = "Name cannot be empty")
 	private String userName;
 	
 	@Embedded
 	private Address address;
 	
+	
+	@Min(value =1000000000,message ="Please chech your Number Again")
 	private long mobile;
 	
-	@NotNull(message = "Email Should be given")
+	@NotEmpty(message = "Email Should be given")
 	private String email;
 	
 	private String password;
 
-	/**
-	 * @param userId
-	 * @param userName
-	 * @param address
-	 * @param mobile
-	 * @param email
-	 */
-	public User(int userId, @NotNull(message = "Name cannot be empty") String userName, Address address, long mobile,
-			@NotNull(message = "Email Should be given") String email) {
-		this.userId = userId;
-		this.userName = userName;
-		this.address = address;
-		this.mobile = mobile;
-		this.email = email;
-	}
-
-	
-	
-	
-	
 	
 }

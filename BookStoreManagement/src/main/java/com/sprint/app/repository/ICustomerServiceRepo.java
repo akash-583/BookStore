@@ -6,4 +6,6 @@ import com.sprint.app.entity.Customer;
 
 public interface ICustomerServiceRepo extends CrudRepository<Customer, Integer>,CustomCustomerRepository {
 
+	
+
 }

@@ -17,7 +17,7 @@ import com.sprint.app.entity.Customer;
 import com.sprint.app.service.ICustomerService;
 
 @RestController
-@RequestMapping("/customerProfile")
+@RequestMapping("/customerprofile")
 public class CustomerWebController {
 	
 	@Autowired
@@ -35,7 +35,7 @@ public class CustomerWebController {
 		return cust.deleteCustomer(customerId);
 	}
 	
-	@GetMapping("/customersList")
+	@GetMapping("/customerslist")
 	public List<Customer> listCustomers()
 	{
 		return cust.listCustomers();
@@ -46,10 +46,10 @@ public class CustomerWebController {
 	{
 		return cust.updateCustomer(c);
 	}
-	@GetMapping("/customer")
-	public Customer viewCustomer(@RequestParam int customerId)
+	@GetMapping("/profile")
+	public Customer viewCustomer(@RequestParam int id)
 	{
-		return cust.viewCustomer(customerId);
+		return cust.viewCustomer(id);
 	}
 	@GetMapping("/customer")
 	public Customer getCustomerByName(@RequestParam String name)

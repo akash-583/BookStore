@@ -6,6 +6,7 @@ import com.sprint.app.entity.Customer;
 
 @Component
 public class CustomerDTOConverter {
+	
 	public CustomerDTO getCustomerBasicInfo(Customer customer)
 	{ 
 		CustomerDTO custDto=new CustomerDTO();
@@ -13,7 +14,6 @@ public class CustomerDTOConverter {
 		custDto.setEmail(customer.getEmail());
 		custDto.setFullName(customer.getEmail());
 		custDto.setMobileNumber(customer.getMobileNumber());
-		custDto.setPassword(customer.getPassword());
 		return custDto;
 		
 	}

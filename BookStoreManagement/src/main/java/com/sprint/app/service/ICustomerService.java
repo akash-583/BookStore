@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.sprint.app.dto.CustomerBasicInfoDTO;
 import com.sprint.app.entity.Customer;
 
 
@@ -19,5 +20,5 @@ public interface ICustomerService {
 	public List<Customer> getCustomerByDate(Date date);
     public Customer getCustomerByName(String name);
     public Customer getCustomerByPhoneNumber(long number);
-
+    public CustomerBasicInfoDTO getCustomerByOrderId(int id);
 }

@@ -1,6 +1,5 @@
 package com.sprint.app.entity;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,31 +8,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
 
-
 @Data
 @Entity
-public class Customer{
+public class PlaceOrder {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int customerId;
-	@Email(message="Email should not be empty")
-	private String email;
-	@NotEmpty(message="Name should not be empty")
-	private String fullName;
-	private String password;
-	private long mobileNumber;
-	private LocalDate registerOn;
+	private int orderId;
+	
 	
 	@Embedded
-	private Address address;
+	private Address shippingAddress;
+	
+	private int quantity;
+	
+	private int customerId;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<PlaceOrder> ordersList;
+	private List<Book> booksList;
+	
 }

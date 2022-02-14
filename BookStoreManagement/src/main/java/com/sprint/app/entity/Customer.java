@@ -35,5 +35,5 @@ public class Customer{
 	private Address address;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<PlaceOrder> ordersList;
+	private List<OrderBook> ordersList;
 }

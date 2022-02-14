@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.sprint.app.dto.CustomerBasicInfoDTO;
 import com.sprint.app.dto.CustomerBasicInfoDTOConversion;
 import com.sprint.app.entity.Customer;
-import com.sprint.app.entity.PlaceOrder;
+import com.sprint.app.entity.OrderBook;
 import com.sprint.app.repository.ICustomerServiceRepo;
 
 
@@ -81,7 +81,7 @@ public class CustomerServiceImpl implements ICustomerService{
 		Customer c=new Customer();
 		for(int i=0;i<custlist.size();i++) {
 			
-			List<PlaceOrder> orders=new ArrayList<PlaceOrder>();
+			List<OrderBook> orders=new ArrayList<OrderBook>();
 			orders=custlist.get(i).getOrdersList();
 			
 			while(orders.size()>=0) {

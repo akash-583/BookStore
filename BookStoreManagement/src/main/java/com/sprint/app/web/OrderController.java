@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sprint.app.dto.CustomerBasicInfoDTO;
-import com.sprint.app.entity.Customer;
+import com.sprint.app.entity.OrderDetails;
 import com.sprint.app.service.IOrderService;
 
 @RestController
@@ -26,5 +26,11 @@ public class OrderController {
 	}
 	
 	
+	@GetMapping("/details")
+	public OrderDetails getCustomerOrderDetails(@RequestParam int id) {
+		
+		
+		return null;
+	}
 
 }

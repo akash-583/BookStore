@@ -1,14 +1,16 @@
 package com.sprint.app.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sprint.app.entity.Book;
+import com.sprint.app.dto.CustomerBasicInfoDTO;
+import com.sprint.app.dto.CustomerBasicInfoDTOConversion;
 import com.sprint.app.entity.Customer;
+import com.sprint.app.entity.PlaceOrder;
 import com.sprint.app.repository.ICustomerServiceRepo;
 
 
@@ -17,17 +19,18 @@ public class CustomerServiceImpl implements ICustomerService{
 	
 	@Autowired
 	ICustomerServiceRepo customer;
-
+	
+	
 	@Override
-	public boolean createCustomer(Customer c) {
+	public String  createCustomer(Customer c) {
 		// TODO Auto-generated method stub
 		customer.save(c);
-		return true;
+		return "Customer Profile Created";
 	}
 
 	@Override
 	public List<Customer> listCustomers() {
-List<Customer> custlist=(List<Customer>) customer.findAll();
+		List<Customer> custlist=(List<Customer>) customer.findAll();
 		
 		if(custlist.size()==0) {
 			return null;
@@ -36,16 +39,15 @@ List<Customer> custlist=(List<Customer>) customer.findAll();
 	}
 
 	@Override
-	public boolean deleteCustomer(int customerId) {
+	public String deleteCustomer(int customerId) {
 		// TODO Auto-generated method stub
-		Customer cus=customer.findById(customerId).get();
-		customer.delete(cus);
-		return true;
+		customer.deleteById(customerId);
+		return "Customer Profile Delete";
 	}
 
 	@Override
 	public String updateCustomer(Customer c) {
-		// TODO Auto-generated method stub
+		customer.save(c);
 		return "Done";
 	}
 
@@ -55,10 +57,49 @@ List<Customer> custlist=(List<Customer>) customer.findAll();
 	}
 
 	@Override
-	public List<Customer> listAllCustomersByBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Customer> getCustomerByDate(Date date) {
+	return customer.getCustomerByDate(date);
 	}
+
+	@Override
+	public Customer getCustomerByName(String name) {
+		// TODO Auto-generated method stub
+		
+		return customer.getCustomerByName(name);
+	}
+
+	@Override
+	public Customer getCustomerByPhoneNumber(long number) {
+		// TODO Auto-generated method stub
+		return customer.getCustomerByPhoneNumber(number);
+	}
+
+	@Override
+	public CustomerBasicInfoDTO getCustomerByOrderId(int id) {
+		
+		List<Customer> custlist=(List<Customer>) customer.findAll();
+		Customer c=new Customer();
+		for(int i=0;i<custlist.size();i++) {
+			
+			List<PlaceOrder> orders=new ArrayList<PlaceOrder>();
+			orders=custlist.get(i).getOrdersList();
+			
+			while(orders.size()>=0) {
+				if(orders.get(i).getOrderId()==id) {
+					int cusId=orders.get(i).getCustomerId();
+					 c=customer.findById(cusId).get();
+					break;
+				}
+			}
+			
+		}
+		
+		CustomerBasicInfoDTOConversion conversion =new CustomerBasicInfoDTOConversion();
+		return conversion.convertCustomer(c);
+		
+	}
+
+
 	
 
 }

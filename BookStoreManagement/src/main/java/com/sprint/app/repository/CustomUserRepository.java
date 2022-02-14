@@ -11,4 +11,5 @@ public interface CustomUserRepository {
 
 	public User getByName(String userName);
 	public List<User> getByArea(String area);
+	public List<User> getByCity(String city);
 }

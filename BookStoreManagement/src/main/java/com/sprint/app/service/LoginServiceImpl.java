@@ -13,10 +13,10 @@ public class LoginServiceImpl implements ILoginService{
 	ILoginRepository loginrepo;
 	
 	@Override
-	public boolean addUser(User user) 
+	public User addUser(User user) 
 	{
-		loginrepo.save(user);
-		return true;
+		User log=loginrepo.save(user);
+		return log;
 	}
 
 

@@ -34,4 +34,23 @@ public class UserServiceImpl implements IUserService{
 		return true;
 	}
 
+	@Override
+	public User getByName(String userName) {
+		
+		return userrepo.getByName(userName);
+	
+	}
+
+	@Override
+	public List<User> getByArea(String area) {
+		
+		return userrepo.getByArea(area);
+	}
+
+	@Override
+	public List<User> getByCity(String city) {
+		
+		return userrepo.getByCity(city);
+	}
+
 }

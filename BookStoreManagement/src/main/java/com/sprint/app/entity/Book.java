@@ -2,18 +2,16 @@ package com.sprint.app.entity;
 
 import java.time.LocalDate;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Book {
@@ -21,18 +19,18 @@ public class Book {
 	@Id
 	private int isbn;
 	private String title;
-
-
+	private String author;
+	
+	
+	private String category;
+	
 	private String description;
+	private int quantity;
 	private double price;
+	private int rating;
 	private LocalDate publishDate;
 	private LocalDate lastUpdatedOn;
 	
-	@Embedded
-	private Author author;
 	
-
-	@Embedded
-	private Category category;
 	
 }

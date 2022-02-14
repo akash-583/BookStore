@@ -6,6 +6,6 @@ import com.sprint.app.entity.User;
 @Service
 public interface ILoginService {
 
-	public boolean addUser(User user);
+	public User addUser(User user);
 	public boolean validateUser(User user);
 }

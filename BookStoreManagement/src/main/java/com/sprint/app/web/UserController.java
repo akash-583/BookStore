@@ -2,7 +2,12 @@ package com.sprint.app.web;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +22,7 @@ import com.sprint.app.service.IUserService;
 
 @RestController
 @RequestMapping("/store")
+@Validated
 public class UserController {
 	
 	@Autowired
@@ -26,10 +32,10 @@ public class UserController {
 	IUserService userService;
 	
 	@PostMapping("/user")
-	public boolean addUser(@RequestBody User u)
+	public ResponseEntity<User> addUser(@RequestBody @Valid User u)
 	{
-		loginService.addUser(u);
-		return true;
+		User user=loginService.addUser(u);
+		return new ResponseEntity<User>(user,HttpStatus.OK);
 	}
 	
 	
@@ -47,15 +53,39 @@ public class UserController {
 	
 	
 	@DeleteMapping("/user")
-	public boolean removeUser(@RequestParam int id)
-	{
+	public boolean removeUser(@RequestParam int id){
+		
 		return userService.removeUser(id);
 	}
 	
 	
 	@GetMapping("/users")
-	public List<User> allUsers()
-	{
+	public List<User> allUsers(){
+		
 		return userService.getAllUsers();
 	}
+	
+	@GetMapping("/details")
+	public User getByName(@RequestParam String userName){
+		
+		return userService.getByName(userName);	
+		
+	}
+	
+	@GetMapping("/user/area")
+	public List<User> getByArea(@RequestParam String area){
+		
+		return userService.getByArea(area);
+		
+	}
+	
+	
+	@GetMapping("/user/city")//
+	public List<User> getByCity(@RequestParam String city){
+		
+		return userService.getByCity(city);
+		
+	}
+	
+	
 }

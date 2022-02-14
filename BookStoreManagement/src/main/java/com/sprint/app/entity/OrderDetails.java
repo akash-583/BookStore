@@ -17,4 +17,5 @@ public class OrderDetails {
 	private double totalPrice;
 	private long customerMobile;
 	private String orderStatus;
+	
 }

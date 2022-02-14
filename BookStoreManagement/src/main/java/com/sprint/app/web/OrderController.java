@@ -1,5 +1,7 @@
 package com.sprint.app.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +19,6 @@ public class OrderController {
 	@Autowired
 	IOrderService odService;
 	
-	
-	
 	@GetMapping("/order")
 	public CustomerBasicInfoDTO getCustomerByOrderId(@RequestParam int id)
 	{
@@ -27,10 +27,9 @@ public class OrderController {
 	
 	
 	@GetMapping("/details")
-	public OrderDetails getCustomerOrderDetails(@RequestParam int id) {
+	public List<OrderDetails> getAllOrderDetails() {
 		
-		
-		return null;
+		return odService.getAllOrders();
 	}
 
 }

@@ -10,11 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Data
 @Entity
-public class OrderBook {
+@JsonIgnoreProperties
+public class PlaceOrder {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

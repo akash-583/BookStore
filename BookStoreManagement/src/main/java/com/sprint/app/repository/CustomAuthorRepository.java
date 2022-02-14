@@ -11,15 +11,3 @@ public class CustomAuthorRepository {
 }
 
 
-//package com.stud.app.repository;
-
-//import java.util.List;
-
-//import org.springframework.stereotype.Repository;
-
-//import com.stud.app.entity.Student;
-
-//@Repository
-//public interface CustomStudentRepository {
-//	public List<Student> getStudentsByCourse(String courseName);
-//}

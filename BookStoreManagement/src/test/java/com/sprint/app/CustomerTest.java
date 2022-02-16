@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.sprint.app.entity.Customer;
 import com.sprint.app.repository.*;
+import com.sprint.app.dto.*;
 import com.sprint.app.service.CustomerServiceImpl;
 
 
@@ -41,20 +42,28 @@ public class CustomerTest {
 		when(customerservice.getCustomerByPhoneNumber(182475963)).thenReturn(customer);
 		assertEquals(customer,customerservice.getCustomerByPhoneNumber(182475963));
 	} 
-	/*@Test
-	void deleteCustomertest() 
+	
+	@Test
+	void getCustomerByNametest() {
+		Customer customer=new Customer();
+		when(customerservice.getCustomerByName("Akash")).thenReturn(customer);
+		assertEquals(customer,customerservice.getCustomerByName("Akash"));
+	} 
+	@Test
+	void viewCustomertest() 
 	{
 		Customer customer1=new Customer();
 		customer1.setCustomerId(123);
-		when(customerservice.deleteCustomer(123)).thenReturn(customer1);
-		assertEquals(customer1, customerservice.deleteCustomer(123));
+		when(customerservice.viewCustomer(123)).thenReturn(customer1);
+		assertEquals(customer1, customerservice.viewCustomer(123));
 	}
 	@Test
-	void createCustomer(Customer c)
+	void getCustomerByPhoneNumbertest() 
 	{
-		Customer customer=new Customer();
-		when(customerservice.createCustomer(any(Customer.class))).thenReturn(customer);
-		assertEquals(customer, customerservice.addCar());
-	}*/
+		Customer customer2=new Customer();
+		when(customerservice.getCustomerByPhoneNumber(12322554)).thenReturn(customer2);
+		assertEquals(customer2, customerservice.getCustomerByPhoneNumber(12322554));
+	}
+
 	
 }

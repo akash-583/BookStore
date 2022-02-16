@@ -23,17 +23,7 @@ import com.sprint.app.service.CustomerServiceImpl;
 public class CustomerTest {
 	@Mock
 	CustomerServiceImpl customerservice;
-	private AutoCloseable closeable;
-	@BeforeEach
-
-	void initService() {
-		closeable=MockitoAnnotations.openMocks(this);
-		customerservice=mock(CustomerServiceImpl.class);
-	}
-	@AfterEach
-	void closeService() throws Exception {
-		closeable.close();
-	}
+	
 	@Test
 	void getCustomerByPhonetest() {
 		Customer customer=new Customer();

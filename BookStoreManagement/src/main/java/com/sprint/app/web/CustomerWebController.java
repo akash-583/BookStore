@@ -29,7 +29,7 @@ public class CustomerWebController {
 		return cust.createCustomer(customer);
 	}
 	
-	@DeleteMapping("/customer")
+	@DeleteMapping("/customer/{customerId}")
 	public String deleteCustomer(@PathVariable int customerId)
 	{
 		return cust.deleteCustomer(customerId);

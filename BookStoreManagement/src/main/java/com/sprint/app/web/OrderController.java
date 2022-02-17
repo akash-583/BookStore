@@ -16,6 +16,7 @@ import com.sprint.app.dto.CustomerBasicInfoDTO;
 import com.sprint.app.dto.OrderDTO;
 import com.sprint.app.entity.OrderDetails;
 import com.sprint.app.entity.PlaceOrder;
+import com.sprint.app.exception.OrderNotFoundException;
 import com.sprint.app.service.IOrderService;
 
 @RestController
@@ -45,14 +46,14 @@ public class OrderController {
 	}
 	
 	@GetMapping("/id/{orderId}")
-	public OrderDetails getOrderDetailsById(@PathVariable int orderId) {
+	public OrderDetails getOrderDetailsById(@PathVariable int orderId) throws OrderNotFoundException {
 		
 		return odService.getOrderDetailsById(orderId);
 	}
 	
 	@PostMapping("/customer/{customerId}")
-	public OrderDTO placeOrder(@RequestBody PlaceOrder p) {
+	public OrderDTO placeOrder(@RequestBody PlaceOrder p,@PathVariable int customerId) {
 		
-		return odService.placeOrder(p);
+		return odService.placeOrder(p,customerId);
 	}
 }

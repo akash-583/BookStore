@@ -13,6 +13,7 @@ public class OrderDetails {
 	@Id
 	private int orderId;
 	private int customerId;
+	private int quantity;
 	private String customerName;
 	private double totalPrice;
 	private long customerMobile;

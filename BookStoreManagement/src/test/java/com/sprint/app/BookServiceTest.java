@@ -19,8 +19,8 @@ public class BookServiceTest {
 	void getBooktest()
 	{
 		Book book=new Book();
-		when(bookservice.getBook(182475963)).thenReturn(book);
-		assertEquals(book,bookservice.getBook(182475963));
+		when(bookservice.getBook(1234)).thenReturn(book);
+		assertEquals(book,bookservice.getBook(1234));
 	}
 	@Test
 	void viewBook()

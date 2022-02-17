@@ -1,7 +1,6 @@
 package com.sprint.app.service;
 
-import java.util.ArrayList;
-import java.util.List;import javax.persistence.criteria.Order;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,12 +8,14 @@ import org.springframework.stereotype.Service;
 import com.sprint.app.dto.CustomerBasicInfoDTO;
 import com.sprint.app.dto.CustomerBasicInfoDTOConversion;
 import com.sprint.app.dto.OrderDTO;
+import com.sprint.app.dto.OrderDTOConversion;
 import com.sprint.app.entity.Book;
 import com.sprint.app.entity.Customer;
 import com.sprint.app.entity.OrderDetails;
 import com.sprint.app.entity.PlaceOrder;
 import com.sprint.app.repository.ICustomerServiceRepo;
 import com.sprint.app.repository.IOrderRepository;
+import com.sprint.app.repository.IPlaceOrderRepository;
 
 @Service
 public class OrderServiceImpl implements IOrderService{
@@ -24,6 +25,9 @@ public class OrderServiceImpl implements IOrderService{
 	
 	@Autowired
 	IOrderRepository odrepo;
+	
+	@Autowired
+	IPlaceOrderRepository porepo;
 	
 	@Override
 	public CustomerBasicInfoDTO getCustomerByOrderId(int orderId) {
@@ -76,8 +80,32 @@ public class OrderServiceImpl implements IOrderService{
 
 
 	@Override
-	public OrderDTO placeOrder(PlaceOrder p) {
+	public OrderDTO placeOrder(PlaceOrder p,int customerId) {
 		
-		return null;
+		porepo.save(p);
+		List<Book> list=p.getBooksList();
+		int total=0;
+		for(Book b:list) {
+			total+=b.getPrice();
+		}
+	
+		
+		Customer c=customerService.findById(customerId).get();
+		
+		OrderDetails od=new OrderDetails();
+		od.setCustomerId(c.getCustomerId());
+		od.setCustomerMobile(c.getMobileNumber());
+		od.setCustomerName(c.getFullName());
+		od.setOrderId(p.getOrderId());
+		od.setOrderStatus("Ordered");
+		od.setTotalPrice(total);
+		od.setQuantity(list.size());
+		
+		odrepo.save(od);
+		
+		
+		OrderDTOConversion dto=new OrderDTOConversion();
+		
+		return dto.convertToDTO(p);
 	}
 }

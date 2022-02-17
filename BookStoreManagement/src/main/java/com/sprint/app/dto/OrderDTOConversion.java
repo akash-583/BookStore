@@ -13,7 +13,7 @@ public class OrderDTOConversion {
 	{
 		OrderDTO dto=new OrderDTO();
 		dto.setOrderId(order.getOrderId());
-		dto.setQuantity(order.getQuantity());
+		dto.setQuantity(order.getBooksList().size());
 		dto.setOrderedBooks(order.getBooksList());
 		return dto;
 	}

@@ -2,21 +2,15 @@ package com.sprint.app;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.sprint.app.entity.Customer;
-import com.sprint.app.repository.*;
-import com.sprint.app.dto.*;
 import com.sprint.app.service.CustomerServiceImpl;
 
 @SpringBootTest
@@ -27,15 +21,15 @@ public class CustomerTest {
 	@Test
 	void getCustomerByPhonetest() {
 		Customer customer=new Customer();
-		when(customerservice.getCustomerByPhoneNumber(182475963)).thenReturn(customer);
-		assertEquals(customer,customerservice.getCustomerByPhoneNumber(182475963));
+		when(customerservice.getCustomerByPhoneNumber(1234567890)).thenReturn(customer);
+		assertEquals(customer,customerservice.getCustomerByPhoneNumber(1234567890));
 	} 
 	
 	@Test
 	void getCustomerByNametest() {
 		Customer customer=new Customer();
-		when(customerservice.getCustomerByName("Akash")).thenReturn(customer);
-		assertEquals(customer,customerservice.getCustomerByName("Akash"));
+		when(customerservice.getCustomerByName("Nagoor")).thenReturn(customer);
+		assertEquals(customer,customerservice.getCustomerByName("Nagoor"));
 	} 
 	@Test
 	void viewCustomertest() 

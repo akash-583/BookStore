@@ -26,12 +26,6 @@ public class CustomerTest {
 	} 
 	
 	@Test
-	void getCustomerByNametest() {
-		Customer customer=new Customer();
-		when(customerservice.getCustomerByName("Nagoor")).thenReturn(customer);
-		assertEquals(customer,customerservice.getCustomerByName("Nagoor"));
-	} 
-	@Test
 	void viewCustomertest() 
 	{
 		Customer customer1=new Customer();

@@ -1,5 +1,6 @@
 package com.sprint.app.web;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +24,17 @@ public class CustomerWebController {
 	@Autowired
 	ICustomerService cust;
 	
-	@PostMapping("/customer")
+	@PostMapping("/newcustomer")
 	public String createCustomer(@RequestBody Customer customer)
 	{
 		return cust.createCustomer(customer);
 	}
 	
-	@DeleteMapping("/customer/{customerId}")
-	public String deleteCustomer(@PathVariable int customerId)
+	@DeleteMapping("/customer")
+	public String deleteCustomer(@RequestParam int customerid)
 	{
-		return cust.deleteCustomer(customerId);
+	     cust.deleteCustomer(customerid);
+	     return "Customer deleted";
 	}
 	
 	@GetMapping("/customerslist")
@@ -42,19 +44,30 @@ public class CustomerWebController {
 	}
 	
 	@PutMapping("/customer")
-	public String updateCustomer(Customer c)
+	public Customer updateCustomer(@RequestBody Customer customer)
 	{
-		return cust.updateCustomer(c);
+		 cust.updateCustomer(customer);
+		 return customer;
 	}
 	@GetMapping("/profile")
 	public Customer viewCustomer(@RequestParam int id)
 	{
 		return cust.viewCustomer(id);
 	}
-	@GetMapping("/customer")
-	public Customer getCustomerByName(@RequestParam String name)
+	@GetMapping("/customerbyname")
+	public List<Customer> getCustomerByName(@RequestParam String fullname)
 	{
-		return cust.getCustomerByName(name);
+		return cust.getCustomerByName(fullname);
+	}
+	@GetMapping("/customerbydate")
+	public List<Customer> getCustomerByDate(@RequestParam Date date)
+	{
+		return cust.getCustomerByDate(date);
+	}
+	@GetMapping("/customerbyphone")
+	public Customer getCustomerByPhoneNumber(@RequestParam int number)
+	{
+		return cust.getCustomerByPhoneNumber(number);
 	}
 
 }

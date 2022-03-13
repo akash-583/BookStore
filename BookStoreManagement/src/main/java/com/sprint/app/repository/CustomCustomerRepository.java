@@ -7,6 +7,6 @@ import com.sprint.app.entity.Customer;
 public interface CustomCustomerRepository {
 	
 	public List<Customer> getCustomerByDate(Date date);
-    public Customer getCustomerByName(String name);
+    public List<Customer> getCustomerByName(String fullName);
     public Customer getCustomerByPhoneNumber(long number);
 }
